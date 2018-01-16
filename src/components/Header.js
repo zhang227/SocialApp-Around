@@ -3,6 +3,7 @@ import logo from '../assets/images/logo.svg';
 import PropTypes from 'prop-types';
 import { Icon } from 'antd';
 export class Header extends React.Component {
+    //检测是否传了一个prop的safe check
     static propTypes = {
         isLoggedIn: PropTypes.bool.isRequired,
         handleLogout: PropTypes.func.isRequired,
