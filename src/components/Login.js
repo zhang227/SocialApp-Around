@@ -14,6 +14,7 @@ class NormalLoginForm extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                //ajax call来handle login promise 2个function
                 $.ajax({
                     url: `${API_ROOT}/login`,
                     method: 'POST',
@@ -22,8 +23,7 @@ class NormalLoginForm extends React.Component {
                         password: values.password,
                     })
                 }).then((response) => {
-                    //redirect to login page after sucess
-                    this.props.history.push('/login');
+                    this.props.handleLogin(response);
                 }, (error) => {
                     message.error(error.responseText);
                 }).catch((error) => {
